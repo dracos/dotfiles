@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -e
+
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+mkdir -p ~/.config/fish/functions
+
+for DIR in $(find . -name .git -prune -o -type d -print); do
+	echo "Looking for files in $DIR"
+	for FILE in `find $DIR -maxdepth 1 -type f ! -name 'install'`; do
+		echo "  Symlinking $FILE"
+		ln -sf $SCRIPT_DIR/$FILE ~/$FILE
+	done
+done
