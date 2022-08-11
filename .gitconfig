@@ -1,0 +1,44 @@
+[user]
+	name = Matthew Somerville
+	email = matthew@mysociety.org
+
+[alias]
+	pf = push --force-with-lease
+	s = status -sb
+	lg = log --graph --abbrev-commit --date=relative --pretty='%C(auto)%h%d%Creset %s %Cgreen(%ad)%Creset %C(blue)<%an>%Creset'
+	lgs = log --oneline --graph
+	dc = diff --cached
+	la = log --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cblue(%an)%Creset' --decorate --numstat
+	c = commit
+	co = checkout
+	m = merge
+	rb = rebase
+	rs = reset
+	grpe = grep
+
+[rerere]
+    enabled = true
+[rebase]
+	autosquash = true
+[core]
+	excludesFile = ~/.gitignore
+    pager = "diff-so-fancy | less --tabs=4 -RFX"
+[checkout]
+	defaultRemote = origin
+[interactive]
+    diffFilter = "diff-so-fancy --patch"
+[color]
+	ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	func = 146 bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
